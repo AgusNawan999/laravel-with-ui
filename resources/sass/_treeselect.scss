@@ -1,0 +1,28 @@
+@import 'vue3-tree/dist/style.css';
+
+.tree[data-v-62a5b360] {
+  .tree-list {
+    li {
+      &.tree-row {
+        .tree-row-item {
+          input[type="checkbox"] {
+            margin-right: .5rem;
+          }
+
+          .child-count {
+            font-size: .625rem !important;
+            background-color: var(--theme-fusion-50);
+            color: var(--theme-light);
+            padding: 0px 5px;
+            border-radius: .325rem;
+          }
+
+          .tree-row-txt {
+            font-family: $font-family-sans-serif !important;
+            font-size: $font-size-base !important;
+          }
+        }
+      }
+    }
+  }
+}

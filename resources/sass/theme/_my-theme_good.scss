@@ -1,0 +1,273 @@
+// override theme root color
+:root {
+  --theme-primary: #4679CC;
+}
+
+$border-radius: .4rem;
+$dropdown-radius: 0.95rem;
+$border-color: #e0e0de;
+$sidebar-bg: #f8f6f2;
+$panel-bg: rgba(248,246,242,.3);
+
+body {
+  &.good-theme {
+    .blck {
+      color:#212529;
+    }
+    &.header-function-fixed {
+      &:not(.nav-function-top) {
+        .page-content {
+          margin-top: 5rem !important;
+        }
+      }
+    }
+    .page-header {
+      height: 98px !important;
+      border-bottom: none !important;
+      // border-bottom: 1px dashed $border-color !important;
+    }
+    .page-logo {
+      height: 98px !important;
+      background: $sidebar-bg !important;
+
+      &.dashed {
+        border-bottom: 1px dashed $border-color !important;
+      }
+    }
+    .page-sidebar {
+      box-shadow: none !important;
+      background: $sidebar-bg !important;
+
+      nav .info-card {
+        height: 3rem !important;
+      }
+    }
+    .page-content {
+      background: #fff !important;
+    }
+    .nav-footer {
+      background: $sidebar-bg !important;
+      padding: 0.8125rem 1.88rem;
+      height: 4.25rem;
+      align-items: center;
+      border-top: 1px dashed $border-color !important;
+
+      .minify-nav {
+        display: inline-block !important;
+        color: var(--theme-primary) !important;
+      }
+    }
+    .subheader {
+      margin-bottom: .25rem !important;
+    }
+    .page-breadcrumb {
+      margin-bottom: 0 !important;
+      font-size: .7rem !important;
+    }
+    .page-footer {
+      border-top: 1px dashed $border-color !important;
+    }
+    .line-divider {
+      border-top: 1px dashed $border-color !important;
+    }
+    .nav-menu li>a {
+      color: #716d66 !important;
+      &>[class*=fa-] {
+        color: #716d66 !important;
+      }
+    }
+    .nav-menu li.active>a {
+      box-shadow: none !important;
+      &>[class*=fa-] {
+        font-weight: 400 !important;
+        color: #0472ee !important;
+      }
+      color: #0472ee !important;
+    }
+    .panel {
+      box-shadow: none !important;
+      border: 1px dashed $border-color !important;
+      background-color: $panel-bg !important;
+      border-radius: calc(.95rem - 1px) !important;
+      padding-left: 0;
+      padding-right: 0;
+
+      .panel-hdr {
+        background-color: transparent !important;
+        border-bottom: 1px dashed $border-color !important
+      }
+
+      // .panel-content {
+      //   padding-left: .6rem;
+      //   padding-right: .6rem;
+      // }
+    }
+    .card {
+      border-radius: calc(.95rem - 1px) !important;
+      background-color: $panel-bg !important;
+      box-shadow: none !important;
+      border: 1px dashed $border-color !important;
+
+      .card-header {
+        border-bottom: 1px dashed $border-color;
+        &:first-child {
+          border-radius: $dropdown-radius $dropdown-radius 0 0;
+        }
+      }
+    }
+
+    &.nav-function-minify {
+      .nav-footer {
+        text-align: center !important;
+        justify-content: center !important;
+        align-items: center !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        flex-direction: column !important;
+        height: 7rem;
+
+        .ava-name {
+          display: none !important;
+        }
+        .minify-nav {
+          margin-top: .6rem;
+        }
+      }
+    }
+    .rounded-end, .rounded-top {
+      border-top-right-radius: $dropdown-radius !important;
+    }
+    .rounded-top {
+      border-top-left-radius: $dropdown-radius !important;
+    }
+    .dropdown-menu {
+      border-radius: $dropdown-radius !important;
+
+      li {
+        &:first-child {
+          .dropdown-item {
+            &:hover, &.active {
+              border-top-right-radius: $dropdown-radius;
+              border-top-left-radius: $dropdown-radius;
+            }
+          }
+        }
+        &:last-child {
+          .dropdown-item {
+            &:hover, &.active {
+              border-bottom-right-radius: $dropdown-radius;
+              border-bottom-left-radius: $dropdown-radius;
+            }
+          }
+        }
+      }
+
+      a, li {
+        &:first-child {
+          &.dropdown-item {
+            &:hover {
+              border-top-right-radius: $dropdown-radius;
+              border-top-left-radius: $dropdown-radius;
+            }
+          }
+        }
+        &:last-child {
+          &.dropdown-item {
+            &:hover {
+              border-bottom-right-radius: $dropdown-radius;
+              border-bottom-left-radius: $dropdown-radius;
+            }
+          }
+        }
+      }
+    }
+
+    .border-faded {
+      border: 1px dashed $border-color;
+    }
+
+    .table {
+      margin-top: .4rem;
+      tbody {
+        tr {
+          &:hover {
+            box-shadow: none;
+            border-radius: 0;
+          }
+        }
+      }
+
+      .thead-light {
+        tr {
+        border-bottom: 1px dashed $border-color;
+          th {
+            color: #495057;
+            background-color: transparent;
+
+            // &:last-child {
+            //   border-radius: .6rem;
+            // }
+            &:first-child {
+              border-radius: 0;
+            }
+          }
+        }
+      }
+    }
+
+    .page-footer {
+      height: 4rem;
+    }
+
+    .btn-xs {
+      min-width: 1.8rem;
+    }
+
+    .dropdown {
+      &.custom-dropdown {
+        &.show {
+          .btn {
+            background-color: var(--theme-light);
+            color: var(--theme-dark);
+            border: 1px solid var(--theme-primary);
+          }
+        }
+        .btn {
+          background-color: var(--theme-light);
+          border: 1px solid #e5e5e5;
+
+          &:hover {
+            color: var(--theme-primary);
+            border: 1px solid var(--theme-primary);
+          }
+
+          &:focus {
+            color: var(--theme-primary);
+            border: 1px solid var(--theme-primary);
+            box-shadow: none;
+          }
+        }
+      }
+    }
+
+    .nav-tabs {
+      border-bottom: 1px dashed rgba(0,0,0,.1);
+      .nav-link {
+        border-style: dashed;
+        border-top-left-radius: 0.95rem;
+        border-top-right-radius: 0.95rem;
+      }
+    }
+
+    .rounded {
+      border-radius: $border-radius !important;
+    }
+
+    .note-for {
+      background: rgba(253, 238, 211, .6);
+      padding: .65rem .8rem;
+      border-radius: .8rem;
+    }
+    // end of good
+  }
+}

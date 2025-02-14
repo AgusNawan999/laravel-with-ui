@@ -1,0 +1,62 @@
+/*!
+ * SpinKit v2.0.1 (https://github.com/tobiasahlin/SpinKit)
+ * A collection of loading indicators animated with CSS
+ * Copyright 2011-2019 Twitter, Inc.
+ * Licensed under MIT (https://github.com/tobiasahlin/SpinKit/blob/master/LICENSE)
+ */
+
+ /* Config */
+:root {
+  --sk-size: 2.125rem;
+  --sk-color: #333;
+  --sk-scale: 60%;
+  --sk-swing-dutation: 1.8s;
+  --sk-swing-rotate: rotate(360deg);
+  --sk-swing-dot-duration: 2.0s;
+  --sk-swing-dot-delay: -1.0s;
+  --sk-swing-dot-scale-from: scale(0.2);
+  --sk-swing-dot-scale-to: scale(1);
+}
+
+.sk-swing {
+  width: var(--sk-size);
+  height: var(--sk-size);
+  position: relative;
+  animation: sk-swing var(--sk-swing-dutation) infinite linear;
+}
+
+.sk-swing-dot {
+  width: var(--sk-scale);
+  height: var(--sk-scale);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-color: var(--sk-color);
+  border-radius: 100%;
+  animation: sk-swing-dot var(--sk-swing-dot-duration) infinite ease-in-out;
+}
+
+.sk-swing-dot:nth-child(2) {
+  top: auto;
+  bottom: 0;
+  animation-delay: var(--sk-swing-dot-delay);
+}
+
+@keyframes sk-swing {
+  100% {
+    transform: var(--sk-swing-rotate);
+  }
+}
+
+@keyframes sk-swing-dot {
+  0%,
+  100% {
+    transform: var(--sk-swing-dot-scale-from);
+  }
+
+  50% {
+    transform: var(--sk-swing-dot-scale-to);
+  }
+}

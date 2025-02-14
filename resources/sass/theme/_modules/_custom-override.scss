@@ -1,0 +1,156 @@
+//bootstrap button colors
+@each $color, $value in $theme-colors {
+  .btn-#{$color} {
+    @include button-variant($value, $value);
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .btn-outline-#{$color} {
+    @include button-outline-variant($value);
+  }
+}
+
+//border
+@each $color, $value in $theme-colors {
+  .border-#{$color} {
+    border-color: $value !important;
+  }
+}
+
+// Typography
+@each $color, $value in $theme-colors {
+  @include text-emphasis-variant(".text-#{$color}", $value, true);
+}
+
+//bg varient
+@each $color, $value in $theme-colors {
+  @include bg-variant(".bg-#{$color}", $value, true);
+}
+
+@if $enable-gradients {
+  @each $color, $value in $theme-colors {
+    @include bg-gradient-variant(".bg-gradient-#{$color}", $value);
+  }
+}
+
+.btn-light {
+	border-color: rgba(0, 0, 0, 0.15);
+	&:not(:disabled):not(.disabled):active,
+	&:not(:disabled):not(.disabled).active,
+	&:hover {
+		border-color: rgba($black, 0.25);
+	}
+}
+.show > .btn-light.dropdown-toggle {
+	border-color: rgba($black, 0.25);
+}
+
+/* btn misc */
+.btn-default {
+	@extend %btn-default;
+}
+
+.btn-outline-default {
+	//@include button-outline-variant($body-color, $body-color, lighten($input-border-color, 8%), $input-border-color);
+	background-color: transparent;
+	color: $body-color;
+	border-color: $input-border-color;
+
+	&:hover,
+	&:not(:disabled):not(.disabled):active,
+	&:not(:disabled):not(.disabled).active,
+	.show > &.dropdown-toggle {
+		color: $body-color;
+		background-color: lighten($input-border-color, 8%);
+		border-color: $input-border-color;
+	}
+
+	&.disabled,
+	&:disabled {
+		color: $body-color;
+		background-color: transparent;
+	}
+
+}
+
+[class*="btn-outline-"] {
+	@extend %common-animation;
+}
+
+.btn-pills {
+	@include rounded(15px);
+}
+
+/* new btn size */
+.btn-xs,
+.btn-group-xs > .btn {
+	padding: 1px $input-btn-padding-x-sm;
+	font-size: .7rem;
+	line-height: 1.5;
+	border-radius: .25rem;
+}
+
+/* btn shadows */
+@mixin button-shadow($value) {
+  box-shadow: 0 2px 6px 0 rgba($value, .5);
+}
+@each $color, $value in $theme-colors {
+  .btn-#{$color} {
+	@include button-shadow($value);
+  }
+}
+
+/* btn icon */
+.btn-icon {
+	width: calc(2.1rem + 2px);
+	padding: 0;
+	line-height: 2.1rem;
+
+	&:not([class*="-primary"]):not([class*="-secondary"]):not([class*="-default"]):not([class*="-success"]):not([class*="-info"]):not([class*="-warning"]):not([class*="-danger"]):not([class*="-dark"]):not([class*="-light"]):not(.nav-item) {
+		&:hover {
+			background-color: rgba($black,0.05);
+			border-color: transparent;
+		}
+
+		&:not(.active):not(:active):not(:hover):not(:focus) {
+			background: transparent;
+			color: $fusion-600;
+		}
+
+		&:focus {
+			border-color: rgba($fusion-500, 0.1) !important;
+		}
+	}
+
+	&.btn-xs {
+		width: calc(1.15rem + 2px);
+		line-height: 1.15rem;
+	}
+
+	&.btn-sm {
+		width: calc(1.5rem + 2px);
+		line-height: 1.5rem;
+	}
+
+	&.btn-lg {
+		width: calc(3rem + 2px);
+		line-height: 3rem;
+	}
+}
+
+.btn-icon-light {
+
+	color: rgba($white, 0.7) !important;
+	border-color: transparent !important;
+
+	&:not(.active):not(:active):not(:hover):not(:focus) {
+		color: rgba($white, 0.7) !important;
+	}
+
+	&:hover {
+		color: $white !important;
+		background-color: rgba($white,0.2) !important;
+
+	}
+}

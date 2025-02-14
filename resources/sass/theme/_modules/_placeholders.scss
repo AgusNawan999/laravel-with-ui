@@ -1,0 +1,28 @@
+%common-animation {
+	@include transition(0.2s,ease-in-out);
+}
+
+%btn-default {
+	@include gradient-img($start: #f5f5f5,$stop: #f1f1f1);
+	color: #444;
+	border: 1px solid rgba(0,0,0,0.1);
+	box-shadow: none;
+
+	&:hover {
+		box-shadow: none;
+		border: 1px solid #c6c6c6;
+		color: #333;
+		z-index: 2;
+	}
+
+	&:focus {
+		border-color: $primary-200 !important;
+		z-index: 3;
+	}
+
+	&.active {
+		background: $primary-300;
+		color: $white;
+		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15) inset !important;
+	}
+}

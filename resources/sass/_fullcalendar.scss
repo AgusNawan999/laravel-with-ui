@@ -1,0 +1,118 @@
+:root {
+  --approved: #1dc9b7;
+  // --rejected: #fd3995;
+  // --absence: #f94a50;
+  --rejected: #f94a50;
+  --absence: #fd3995;
+  --process: #ffc241;
+  --active: #886ab5;
+  --today: #868e96;
+}
+
+.fc-header-toolbar.fc-toolbar {
+  display: none;
+}
+
+.fc-day-sat,
+.fc-day-sun {
+  background-color: #fd9e9e29;
+}
+
+.fc {
+  margin: 0 auto;
+  .bg-approved {
+    background-color: var(--approved);
+    border-color: var(--approved);
+    cursor: pointer;
+  }
+  .bg-rejected {
+    background-color: var(--rejected);
+    border-color: var(--rejected);
+    cursor: pointer;
+  }
+  .bg-process {
+    background-color: var(--process);
+    border-color: var(--process);
+    cursor: pointer;
+  }
+  .absen {
+    background-color: var(--absence);
+    border-color: var(--absence);
+    cursor: pointer;
+  }
+
+  .fc-daygrid-day-top {
+    &.has-flag::before {
+      content: '\f413';
+      font-family: 'nextgen-icons';
+      position: absolute;
+      top: 7px;
+      left: 6px;
+      font-size: 10px;
+      height: 10px;
+      width: auto;
+    }
+
+    &.has-approved::before {
+      color: var(--approved);
+    }
+
+    &.has-rejected::before {
+      color: var(--rejected);
+    }
+
+    &.has-process::before {
+      color: var(--process);
+    }
+
+    &.has-active::before {
+      color: var(--active);
+    }
+
+    &.has-today::before {
+      color: var(--today);
+    }
+  }
+
+  .fc-daygrid-day-number {
+    cursor: pointer;
+    padding-top: 3px;
+    margin: 2px 2px -2px -2px;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    text-align: center;
+    width: calc(1.5rem + 2px);
+    height: calc(1.5rem + 2px);
+
+    &.disabled {
+      cursor: not-allowed;
+      &:hover {
+        transition: none;
+        background-color: transparent;
+        border: unset;
+      }
+    }
+
+    &:hover {
+      transition: background-color 0.5s ease-in-out;
+      background-color: #eee;
+      border: 1px solid #ccc;
+    }
+  }
+
+  // .fc-daygrid-day-events {
+  //   display: inline-flex;
+  //   flex-wrap: wrap;
+  //   padding: 0 .4rem;
+  //   .fc-daygrid-event-harness {
+  //     .fc-daygrid-block-event {
+  //       padding: 0 4px;
+  //     }
+
+  //     &:not(.fc-daygrid-event-harness-abs) {
+  //       margin-top: -22px !important;
+  //     }
+  //   }
+  // }
+}

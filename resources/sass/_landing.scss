@@ -1,0 +1,156 @@
+$color_1: #5e61ab;
+$color_2: white;
+$color_3: blue;
+$color_4: rgb(61, 61, 245);
+$color_5: rgba(0, 0, 0,0.3);
+$background-color_1: #5e61ab;
+$background-color_2: transparent;
+$background-color_3: white;
+$background-color_4: #ed008c;
+$background-color_5: #478ecc;
+$background-color_6: #16bab1;
+$border-color_1: white;
+$border-color_2: #b6babc;
+$border-color_3: #5e61ab;
+
+/* .footer{
+    position:relative;
+    bottom: 0;
+    text-align: center;
+  } */
+.landing-page {
+    font-family: "Baloo Paaji 2";
+    font-size: 14px;
+     &
+
+	.bg-utama {
+		background-color: $background-color_1;
+	}
+  .drop-shadow-cust{
+    box-shadow: 1px 3px 5px 1px $color_5;
+  }
+  .padding-kontainer-kiri{
+    padding-left: 50px !important;
+  }
+  .padding-kontainer-kanan{
+    padding-right: 50px !important;
+  }
+	.btn-cust-dark {
+		border-color: $border-color_1;
+		background-color: $background-color_2;
+		&:hover {
+			border-color: $border-color_2;
+			color: $color_1 !important;
+			background-color: $background-color_3 !important;
+		}
+	}
+	.btn-no-outline-dark {
+		padding-left: 20px;
+		padding-right: 20px;
+		color: $color_2;
+		background-color: $background-color_2;
+		&:hover {
+			color: $color_1 !important;
+			background-color: $background-color_3 !important;
+		}
+	}
+	.text-color-utama {
+		color: $color_1;
+	}
+	.btn {
+		font-weight: bold;
+		border-radius: 10px;
+    font-size: 14px;
+	}
+	// .btn-danger {
+	// 	background-color: $background-color_4;
+	// }
+	// .btn-primary {
+	// 	background-color: $background-color_5;
+	// }
+	// .btn-success {
+	// 	background-color: $background-color_6;
+	// }
+	.btn-inpage-light {
+		padding-left: 20px;
+		padding-right: 20px;
+		border-radius: 15px;
+		border-color: $border-color_3;
+		color: $color_1 !important;
+		min-width: 150px;
+		background-color: $background-color_2;
+		&:hover {
+			border-color: $border-color_3;
+			color: $color_2 !important;
+			background-color: $background-color_1 !important;
+		}
+	}
+	.btn-inpage-dark {
+		padding-left: 20px;
+		padding-right: 20px;
+		border-radius: 15px;
+		border-color: $border-color_1;
+		color: $color_2;
+		min-width: 150px;
+		background-color: $background-color_2;
+		&:hover {
+			border-color: $border-color_2;
+			color: $color_1 !important;
+			background-color: $background-color_3 !important;
+		}
+	}
+	.rounded-left-cust {
+		border-top-left-radius: 20px;
+		border-bottom-left-radius: 20px;
+	}
+	.content1sub2 {
+		min-height: 400px;
+	}
+	input.form-control {
+		border-radius: 10px !important;
+		border: 1px solid #747576;
+	}
+	.custom-grid {
+		>.col-lg-1 {
+			flex-basis: calc((100% / 7) * 1);
+			max-width: calc((100% / 7) * 1);
+		}
+		>.col-lg-2 {
+			flex-basis: calc((100% / 7) * 2);
+			max-width: calc((100% / 7) * 2);
+		}
+		>.col-lg-3 {
+			flex-basis: calc((100% / 7) * 3);
+			max-width: calc((100% / 7) * 3);
+		}
+		>.col-lg-4 {
+			flex-basis: calc((100% / 7) * 4);
+			max-width: calc((100% / 7) * 4);
+		}
+		>.col-lg-5 {
+			flex-basis: calc((100% / 7) * 5);
+			max-width: calc((100% / 7) * 5);
+		}
+		>.col-lg-6 {
+			flex-basis: calc((100% / 7) * 6);
+			max-width: calc((100% / 7) * 6);
+		}
+		>.col-lg-7 {
+			flex-basis: calc((100% / 7) * 7);
+			max-width: calc((100% / 7) * 7);
+		}
+	}
+	a{
+		color: $color_3 !important;
+		text-decoration: underline !important;
+	}
+	a:hover{
+		color: $color_4 !important;
+		cursor: pointer !important;
+	}
+}
+body {
+	&:has(.landing-page) {
+		background-image: linear-gradient(to right, white , #e8f5fd);
+	}
+}
