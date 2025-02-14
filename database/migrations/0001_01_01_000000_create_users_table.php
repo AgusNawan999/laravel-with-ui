@@ -11,15 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('v_userid')->unique();
-            $table->string('v_name');
-            $table->string('v_email')->unique();
-            $table->timestamp('dt_email_verified_at')->nullable();
-            $table->string('v_password');
-            $table->rememberToken();
-            $table->timestamps();
+        Schema::create('tm_users', function (Blueprint $table) {
+          $table->id('i_id')->comment('Increment ID pengguna');
+          $table->string('v_userid', 10)->comment('Username/userid pengguna');
+          $table->string('v_username', 255)->comment('Nama lengkap pengguna');
+          $table->string('v_userpass')->comment('Password pengguna');
+          $table->timestamp('dt_last_change_pass')->nullable()->comment('Waktu input terakhir ganti password');
+          $table->tinyInteger('si_user_enable')->default(1)->comment('Flagging penguna aktif. [0: tidak aktif, 1: aktif]');
+          $table->string('v_created_by', 10)->nullable()->comment('User input');
+          $table->timestamp('dt_created_at')->nullable()->comment('Waktu input');
+          $table->string('v_updated_by', 10)->nullable()->comment('User update terkahir');
+          $table->timestamp('dt_updated_at')->nullable()->comment('Waktu update');
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
@@ -43,7 +45,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('tm_users');
         Schema::dropIfExists('password_reset_tokens');
         Schema::dropIfExists('sessions');
     }

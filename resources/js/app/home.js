@@ -10,7 +10,7 @@ import { configureCompat } from '@/js/compat-config.js'
 import HomeComponent from '@/js/components/bootstrap-vue/home-registered'
 
 // vee-validate config
-import rules from '@vee-validate/rules'
+import Required from '@vee-validate/rules'
 import { defineRule, configure } from 'vee-validate'
 import id from '@vee-validate/i18n/dist/locale/id.json'
 import { localize, setLocale } from '@vee-validate/i18n'
@@ -19,7 +19,7 @@ import { localize, setLocale } from '@vee-validate/i18n'
 import { minHpLength } from '../../js/composable/useRules'
 
 configure({ generateMessage: localize({ id }) })
-Object.keys(rules).forEach(rule => defineRule(rule, rules[rule]))
+Object.keys(Required).forEach(rule => defineRule(rule, Required[rule]))
 defineRule('minHpLength', minHpLength)
 setLocale('id')
 

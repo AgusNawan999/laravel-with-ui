@@ -1,6 +1,6 @@
-const landing = () => import('@/js/modules/entry/Landing.vue')
-const forbidden = () => import('@/js/modules/error/403.vue')
-const pageNotFound = () => import('@/js/modules/error/404.vue')
+const landing = () => import('../../modules/entry/Landing.vue')
+const forbidden = () => import('../../modules/error/403.vue')
+const pageNotFound = () => import('../../modules/error/404.vue')
 
 export const basicRoutes = [
   {

@@ -3,46 +3,140 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use App\Traits\HasHashSlug;
+// use App\Models\Setting\Group;
+// use App\Models\Setting\UserGroup;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations\{BelongsToMany, HasMany, HasOne};
 
 class User extends Authenticatable
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
+  use HasApiTokens, HasFactory, Notifiable, HasHashSlug;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var list<string>
-     */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var list<string>
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
+  /**
+   * The name of the "created at" column.
+   *
+   * @var string
+   */
+  const CREATED_AT = 'dt_created_at';
 
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
-    {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
-    }
+  /**
+   * The name of the "updated at" column.
+   *
+   * @var string
+   */
+  const UPDATED_AT = 'dt_updated_at';
+
+  /**
+   * The primary key for the model.
+   *
+   * @var string
+   */
+  protected $primaryKey = 'i_id';
+
+  /**
+   * The attributes that are mass assignable.
+   *
+   * @var array<int, string>
+   */
+  protected $fillable = [
+    'i_id',
+    'v_userid',
+    'v_username',
+    'v_email',
+    'v_userpass',
+    'dt_last_change_pass',
+    'si_user_enable',
+    'v_created_by',
+    'dt_created_at',
+    'v_updated_by',
+    'dt_updated_at',
+  ];
+
+  /**
+   * The attributes that should be hidden for serialization.
+   *
+   * @var array<int, string>
+   */
+  protected $hidden = [
+    'v_userpass',
+  ];
+
+  /**
+   * The attributes that should be cast.
+   *
+   * @var array<string, string>
+   */
+  protected $casts = [
+    'dt_last_change_pass' => 'datetime',
+    'v_userpass' => 'hashed',
+    'si_user_enable' => 'boolean'
+  ];
+
+  /**
+   * Create a new User model instance.
+   *
+   * @param  array  $attributes
+   * @return void
+   */
+  public function __construct(array $attributes = [])
+  {
+    parent::__construct($attributes);
+    $this->setTable('tm_users');
+  }
+
+  /**
+   * Get all groups for the user.
+   */
+  // public function groups() : BelongsToMany
+  // {
+  //   return $this->belongsToMany(
+  //     Group::class,
+  //     'tm_user_groups',
+  //     'v_user_id',
+  //     'v_group_code',
+  //     'v_userid'
+  //   )
+  //   ->where('si_aktif', 1);
+  // }
+
+  /**
+   * Get profile data for the user.
+   */
+  public function profile() : HasOne
+  {
+    return $this->hasOne(UserProfile::class, 'nrk', 'v_userid');
+  }
+
+  /**
+   * Get all features via group for the user.
+   */
+  // public function featuresViaGroups() : BelongsToMany
+  // {
+  //   return $this->groups()->with('features');
+  // }
+
+  /**
+   * Get the logHistory for the user login.
+   */
+  public function logHistory(): HasMany
+  {
+    return $this->hasMany(UserHistory::class, 'v_userid', 'v_userid');
+  }
+
+
+  // public function userGroup(): HasMany
+  // {
+  //   return $this->hasMany(UserGroup::class, 'v_user_id', 'v_userid');
+  // }
+
+  // public function PostKonfirmasi(): HasOne
+  // {
+  //   return $this->hasOne(Konfirmasi::class, 'v_userid', 'v_userid');
+  // }
 }

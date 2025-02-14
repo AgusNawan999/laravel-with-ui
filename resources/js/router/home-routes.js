@@ -1,24 +1,23 @@
 import { _settings } from '@/js/utils/common'
 import { createWebHistory, createRouter } from 'vue-router'
 
-const landing = () => import('@/js/modules/entry/Landing.vue')
-const beranda = () => import('@/js/modules/layanan/ListLayanan.vue')
+const landing = () => import('../modules/entry/Landing.vue')
 
 // import some route
-import { basicRoutes } from './parts/basic-routes'
+import { basicRoutes } from '../router/parts/basic-routes'
 
 const landingRoutes = [
   {
     path: '/',
     component: landing,
     name: 'landing.home',
-    children: [
-      {
-        path: '',
-        component: beranda,
-        name: 'landing.beranda',
-      }
-    ],
+    // children: [
+    //   {
+    //     path: '',
+    //     component: beranda,
+    //     name: 'landing.beranda',
+    //   }
+    // ],
     meta: {
       auth: false,
       access: true,

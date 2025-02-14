@@ -9,7 +9,7 @@
           <div class="row">
             <!-- konten 1 sub 1 -->
             <div class="content1sub1" :class="isMdScreen ? 'col-md-5 pt-5' : 'col-md-5 pt-5 padding-kontainer-kiri'">
-              <SideContent></SideContent>
+              <!-- <SideContent></SideContent> -->
             </div>
             <!-- konten 1 sub 1 end -->
 
@@ -44,7 +44,7 @@
   import HeaderSection from "./HeaderSection.vue"
   import FooterSection from "./FooterSection.vue"
   import Timeline from "./_parts/Timeline.vue"
-  import SideContent from "./_parts/SideContent.vue"
+  // import SideContent from "./_parts/SideContent.vue"
   import StickyMenu from "./_parts/StickyMenu.vue"
 
 

@@ -26,8 +26,10 @@ const themeAssets = [
 export default defineConfig({
   css: {
     postcss: {
-      plugins: [postcssNesting],
-    },
+      plugins: [
+        postcssNesting
+      ]
+    }
   },
   plugins: [
     eslintPlugin(),
@@ -59,12 +61,12 @@ export default defineConfig({
     alias: {
       '@': `${normalizePath(path.resolve(__dirname, 'resources/'))}/`,
       // 'vue': 'vue/dist/vue.esm-bundler.js', v3
-      jQuery: 'jquery/dist/jquery.min.js',
-      vue: '@vue/compat', // vue2 -> vue3
+      'jQuery': 'jquery/dist/jquery.min.js',
+      'vue': '@vue/compat', // vue2 -> vue3
       'vue-slimscroll': 'vue-slimscroll',
       'vue-esm': 'vue/dist/vue.esm-bundler.js',
       'vue-tippy': 'vue-tippy/dist/vue-tippy.esm.js',
-      buffer: 'rollup-plugin-node-polyfills/polyfills/buffer-es6',
+      'buffer': 'rollup-plugin-node-polyfills/polyfills/buffer-es6',
       '@theme': `${normalizePath(path.resolve(__dirname, 'theme/'))}`,
     },
   },
@@ -100,25 +102,8 @@ export default defineConfig({
           'jquery-utils': ['@popperjs/core', 'popper.js', 'jquery'],
           'common-utils': ['axios', 'moment', 'lodash', 'sweetalert2', 'ziggy-js', 'hashids', 'maska', 'tippy.js'],
           'vue-utils': ['vue', 'vue-router', 'pinia', '@vue/compat'],
-          'vue-plugins-utils': [
-            '@vee-validate/i18n',
-            '@vee-validate/rules',
-            '@vee-validate/yup',
-            'vee-validate',
-            'vue-easy-lightbox',
-            'vue-multiselect',
-            'vue-slimscroll',
-            'vue-tippy',
-            'vue3-tree',
-          ],
-          'fullcalendar-utils': [
-            '@fullcalendar/bootstrap',
-            '@fullcalendar/core',
-            '@fullcalendar/daygrid',
-            '@fullcalendar/interaction',
-            '@fullcalendar/timegrid',
-            '@fullcalendar/vue3',
-          ],
+          'vue-plugins-utils': ['@vee-validate/i18n', '@vee-validate/rules', '@vee-validate/yup', 'vee-validate', 'vue-easy-lightbox', 'vue-multiselect', 'vue-slimscroll', 'vue-tippy', 'vue3-tree'],
+          'fullcalendar-utils': ['@fullcalendar/bootstrap', '@fullcalendar/core', '@fullcalendar/daygrid', '@fullcalendar/interaction', '@fullcalendar/timegrid', '@fullcalendar/vue3'],
         },
       },
     },
