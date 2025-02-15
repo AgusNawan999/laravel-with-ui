@@ -69,5 +69,13 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 ## Install
 1. <code>composer isntall</code>
 2. <code>php artisan vendor:publish</code>
-3. <code>yarn install && yarn build</code>
-3. <code>yarn dev</code>
+
+
+## Insert data for Menu
+running artisan for seed DB
+$path = database/seeders
+1. <code>php artisan db:seed --class={"$path->name"}</code>
+
+## Node install
+1. <code>yarn install && yarn build</code>
+2. <code>yarn dev</code>
