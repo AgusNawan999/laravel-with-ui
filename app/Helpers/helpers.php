@@ -203,15 +203,15 @@ if (!function_exists("createLog")) {
   }
 }
 
-if (!function_exists('upl_role')) {
+if (!function_exists('adm_role')) {
   /**
-   * Get UPL role code.
+   * Get ADM role code.
    *
    * @return string
    */
-  function upl_role()
+  function adm_role()
   {
-    $group = Group::whereHas('uplRole', fn($q) => $q->where('v_type', 'upl_role_access'))->first();
+    $group = Group::whereHas('admRole', fn($q) => $q->where('v_type', 'adm_role_access'))->first();
     return $group->v_group_code ?? null;
   }
 

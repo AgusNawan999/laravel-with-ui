@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\Services\LayananRequest;
@@ -58,27 +59,19 @@ class UserRepository implements UserRepositoryInterface
         'v_userip' => getIp(),
         'v_useragent' => $userAgent,
         'dt_last_loggedin' => now(),
-        'v_created_by' => $user->v_userid, // kalo lagi mode impersonate nanti diisi user yang impersonate
+        'v_created_by' => $user->username, // kalo lagi mode impersonate nanti diisi user yang impersonate
       ];
 
       $user->logHistory()->create($data);
       [$roles, $permissions] = $this->features();
-      $etpp = $this->getEtppData($user);
-
-      // issuing API Token with abilities
-      if ($viaApi) {
-        $expirationToken = config('app.api_token_expired');
-        $newToken = $user->createToken($tokenName, $permissions, now()->addMinutes($expirationToken))->plainTextToken;
-      }
 
       $sessionData = [
-        'id' => $user->v_userid,
-        'name' => Str::title($user->v_username),
+        'id' => $user->username,
+        'name' => Str::title($user->v_full_name),
         'roles' => $roles,
         'permissions' => $permissions,
         'admin_home_permission' => config('app.admin_home_permission'),
       ];
-
       session(['user' => $sessionData]);
 
       return [$sessionData, $newToken];
@@ -163,7 +156,6 @@ class UserRepository implements UserRepositoryInterface
         ? $query->where('v_parent_id', $parentId)
         : $query->whereNull('v_parent_id');
     };
-
     // find user
     $user = auth()->user();
     $groups = $user->groups()->get();

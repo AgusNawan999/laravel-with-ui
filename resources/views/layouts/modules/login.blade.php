@@ -1,4 +1,4 @@
-@extends('layouts.app.auth')
+@extends('layouts.app.app-login')
 
 @section('title')
   {{ Str::title('Emasin | Login') }}

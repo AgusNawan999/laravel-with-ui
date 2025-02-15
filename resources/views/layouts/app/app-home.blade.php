@@ -25,17 +25,23 @@
     'theme/css/app~bundle.css',
     'resources/sass/app.scss',
 
-    'resources/js/app/login.js',
+    'resources/js/app/home.js'
   ])
 </head>
-<body class="pl-0 mod-bg-1 mod-skin-light">
+<body>
   <div id="app">
     <main class="py-4">
       @yield('content')
     </main>
   </div>
+  <form id="logout-form" action="{{ route('auth.logout') }}" method="POST" style="display: none;">
+    @csrf
+  </form>
+  @php
+    session()->get('user');
+  @endphp
   @include('helpers.color-profile')
-  @routes('auth')
+  @routes('landing')
 
   <script>
     /**
@@ -51,8 +57,10 @@
       'appname' => config('app.name'),
       'is_local' => config('app.env') == 'production' ? false : true,
       'current_date' => Str::now('Y-m-d'),
+      'current_fulldate' => Str::now('Y-m-d H:i:s'),
       'home' => route('home'),
-      'validateCaptcha' => config('app.env') === 'production'
+      'loggedInUser' => auth()->check(),
+      'user' => session()->get('user'),
     ]) !!}
   </script>
 </body>

@@ -6,6 +6,7 @@ use App\Rules\CheckCaptcha;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Repositories\Contracts\UserRepositoryInterface;
@@ -99,7 +100,7 @@ class LoginController extends Controller
    */
   public function showLogin()
   {
-    return view('layouts.modules.auth');
+    return view('layouts.modules.login');
   }
 
   /**
@@ -133,7 +134,6 @@ class LoginController extends Controller
 
       return $this->sendLockoutResponse($request);
     }
-
     $attemp = $this->attemptLogin($request);
     if ($attemp) {
       if ($request->hasSession()) {
@@ -182,11 +182,12 @@ class LoginController extends Controller
    */
   protected function attemptLogin(Request $request)
   {
+    $dataCredentials = $request->validate([
+      'username' => ['required'],
+      'password' => ['required'],
+    ]);
 
-    return $this->guard()->attempt(
-      $this->credentials($request),
-      $request->filled('remember')
-    );
+    return Auth::attempt($dataCredentials);
   }
 
   /**

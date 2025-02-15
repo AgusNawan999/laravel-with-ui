@@ -13,6 +13,6 @@ use App\Http\Controllers\HomeController;
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 include_route_files(__DIR__ . '/modules/');
 
-Route::get('/{vue_capture?}', [HomeController::class, 'index'])
+Route::get('/{vue_capture?}', [HomeController::class, 'home'])
 ->where('vue_capture', '[\/\w\.-]*')
 ->name('home');

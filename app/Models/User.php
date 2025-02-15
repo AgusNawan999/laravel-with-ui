@@ -5,8 +5,8 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
 use App\Traits\HasHashSlug;
-// use App\Models\Setting\Group;
-// use App\Models\Setting\UserGroup;
+use App\Models\Setting\Group;
+use App\Models\Setting\UserGroup;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -46,8 +46,8 @@ class User extends Authenticatable
    */
   protected $fillable = [
     'i_id',
-    'v_userid',
-    'v_username',
+    'username',
+    'v_full_name',
     'v_email',
     'v_userpass',
     'dt_last_change_pass',
@@ -93,17 +93,17 @@ class User extends Authenticatable
   /**
    * Get all groups for the user.
    */
-  // public function groups() : BelongsToMany
-  // {
-  //   return $this->belongsToMany(
-  //     Group::class,
-  //     'tm_user_groups',
-  //     'v_user_id',
-  //     'v_group_code',
-  //     'v_userid'
-  //   )
-  //   ->where('si_aktif', 1);
-  // }
+  public function groups() : BelongsToMany
+  {
+    return $this->belongsToMany(
+      Group::class,
+      'tm_user_groups',
+      'username',
+      'v_group_code',
+      'username'
+    )
+    ->where('si_aktif', 1);
+  }
 
   /**
    * Get profile data for the user.
@@ -116,24 +116,24 @@ class User extends Authenticatable
   /**
    * Get all features via group for the user.
    */
-  // public function featuresViaGroups() : BelongsToMany
-  // {
-  //   return $this->groups()->with('features');
-  // }
+  public function featuresViaGroups() : BelongsToMany
+  {
+    return $this->groups()->with('features');
+  }
 
   /**
    * Get the logHistory for the user login.
    */
   public function logHistory(): HasMany
   {
-    return $this->hasMany(UserHistory::class, 'v_userid', 'v_userid');
+    return $this->hasMany(UserHistory::class, 'username', 'username');
   }
 
 
-  // public function userGroup(): HasMany
-  // {
-  //   return $this->hasMany(UserGroup::class, 'v_user_id', 'v_userid');
-  // }
+  public function userGroup(): HasMany
+  {
+    return $this->hasMany(UserGroup::class, 'username', 'username');
+  }
 
   // public function PostKonfirmasi(): HasOne
   // {

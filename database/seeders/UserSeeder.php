@@ -16,9 +16,10 @@ class UserSeeder extends Seeder
     public function run(): void
     {
       DB::table('tm_users')->insert([
-        'v_userid' => 'adm_2',
-        'v_username' => 'Admin 2',
-        'v_userpass' => Hash::make('password'),
+        'username' => 'adm_3',
+        'v_full_name' => 'Admin 3',
+        'v_email' => 'admin@mail.com',
+        'password' => Hash::make('x'),
         'dt_created_at' => Carbon::now()
       ]);
     }

@@ -1,6 +1,6 @@
 import _ from 'lodash'
 import './theme-config'
-import { useAlert } from '../js/composable/useSwal'
+import { useAlert } from '@/js/composable/useSwal'
 
 window.doLogout = (e) => {
   e.preventDefault()

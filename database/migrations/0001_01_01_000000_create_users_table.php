@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('tm_users', function (Blueprint $table) {
           $table->id('i_id')->comment('Increment ID pengguna');
-          $table->string('v_userid', 10)->comment('Username/userid pengguna');
-          $table->string('v_username', 255)->comment('Nama lengkap pengguna');
-          $table->string('v_userpass')->comment('Password pengguna');
+          $table->string('username', 10)->comment('Username/userid pengguna');
+          $table->string('v_full_name', 255)->comment('Nama lengkap pengguna');
+          $table->string('v_email', 20)->comment('Nama email');
+          $table->string('password')->comment('Password pengguna');
           $table->timestamp('dt_last_change_pass')->nullable()->comment('Waktu input terakhir ganti password');
           $table->tinyInteger('si_user_enable')->default(1)->comment('Flagging penguna aktif. [0: tidak aktif, 1: aktif]');
           $table->string('v_created_by', 10)->nullable()->comment('User input');

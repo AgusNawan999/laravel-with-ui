@@ -40,8 +40,8 @@ export default defineConfig({
 
         // scripts
         'resources/js/app/home.js',
-        // 'resources/js/app/admin.js',
-        // 'resources/js/app/auth.js',
+        'resources/js/app/login.js',
+        'resources/js/app/admin.js',
 
         // theme
         ...themeAssets,

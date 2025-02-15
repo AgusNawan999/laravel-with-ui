@@ -1,20 +1,20 @@
 <template>
   <div class="container-fluid landing-page">
     <!-- header / navbar -->
-    <div class="row header pb-3">
-      <div class="col-12 mt-5">
+    <div class="pb-3 row header">
+      <div class="mt-5 col-12">
         <div class="row">
           <div :class="isMdScreen ? 'col-md-5 text-center' : 'col-md-5 padding-kontainer-kiri'">
             <img
               src="@/images/logo_diskominfotik.png" height="50" alt="" style="cursor: pointer;" @click.prevent="handleHome()">
           </div>
-          <div class="col-md-7 rounded-left-cust d-flex justify-content-right align-items-center text-white bg-utama font-weight-bold padding-kontainer-kanan pb-2 pt-2 drop-shadow-cust" :class="isMdScreen ? 'mt-3' : ''">
-            <button type="button" class="btn btn-sm btn-no-outline-dark ml-1 pl-2 pr-2" @click="handleTentangLayanan">TENTANG LAYANAN TIK</button>
-            <div class="right-section ml-auto">
+          <div class="pt-2 pb-2 text-white col-md-7 rounded-left-cust d-flex justify-content-right align-items-center bg-utama font-weight-bold padding-kontainer-kanan drop-shadow-cust" :class="isMdScreen ? 'mt-3' : ''">
+            <button type="button" class="pl-2 pr-2 ml-1 btn btn-sm btn-no-outline-dark" @click="handleTentangLayanan">TENTANG LAYANAN TIK</button>
+            <div class="ml-auto right-section">
               <template v-if="settings.loggedInUser">
                 <button
                   type="button"
-                  class="btn btn-sm btn-no-outline-dark mr-2"
+                  class="mr-2 btn btn-sm btn-no-outline-dark"
                   @click="handleToProfile"
                 >
                   PROFIL
@@ -22,13 +22,13 @@
                 <button
                   v-if="canAccessAdminHome"
                   type="button"
-                  class="btn btn-sm btn-no-outline-dark mr-2"
+                  class="mr-2 btn btn-sm btn-no-outline-dark"
                   @click="handleToAdmin"
                 >
                   HALAMAN ADMIN
                 </button>
                 <a
-                  class="btn btn-sm btn-cust-dark text-white no-decoration"
+                  class="text-white btn btn-sm btn-cust-dark no-decoration"
                   href="javascript:void(0)"
                   onclick="doLogout.apply(this, arguments)"
                 >
@@ -36,8 +36,8 @@
                 </a>
               </template>
               <template v-else>
-                <button type="button" class="btn btn-sm btn-no-outline-dark mr-2" @click="loginUser">LOGIN</button>
-                <button type="button" class="btn btn-sm btn-cust-dark text-white" @click="daftarUser">DAFTAR</button>
+                <button type="button" class="mr-2 btn btn-sm btn-no-outline-dark" @click="loginUser">LOGIN</button>
+                <button type="button" class="text-white btn btn-sm btn-cust-dark" @click="daftarUser">DAFTAR</button>
               </template>
             </div>
           </div>
@@ -60,6 +60,7 @@
         },
         computed: {
           canAccessAdminHome() {
+            console.log({test: this});
             if(this.settings.user){
               return this.settings.user.permissions.includes(this.settings.user.admin_home_permission)
             }
