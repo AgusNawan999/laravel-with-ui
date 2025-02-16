@@ -31,14 +31,14 @@ onMounted(() => {
         data-target="#modal-shortcut"
       >
         <img
-          src="@/images/dki-logo.png"
+          src="@/images/logo-emasin2.png"
           class="img-responsive"
           :alt="_settings.appname"
           aria-roledescription="logo"
           style="width: 28px"
         />
-        <span class="page-logo-text mr-1">{{ _settings.appname }}</span>
-        <span class="position-absolute text-white opacity-50 small pos-top pos-right mr-2 mt-n2"></span>
+        <span class="mr-1 page-logo-text">{{ _settings.appname }}</span>
+        <span class="mr-2 text-white opacity-50 position-absolute small pos-top pos-right mt-n2"></span>
       </a>
     </div>
     <div class="line-divider"></div>
@@ -58,7 +58,7 @@ onMounted(() => {
           variant="secondary"
         ></b-avatar>
       </div>
-      <div class="ava-name d-flex flex-column justify-content-center ml-3 mr-2">
+      <div class="ml-3 mr-2 ava-name d-flex flex-column justify-content-center">
         <span class="text-truncate text-truncate-sm d-inline-block fw-400">
           {{ USER_NAME }}
         </span>
@@ -66,11 +66,11 @@ onMounted(() => {
           {{ SECTION }}
         </span>
       </div>
-      <!-- <div title="Perbesar menu" data-action="toggle" data-class="nav-function-minify" class="minify-nav ml-auto btn btn-icon"><i class="fad fa-angle-double-right fa-md"></i></div> -->
+      <!-- <div title="Perbesar menu" data-action="toggle" data-class="nav-function-minify" class="ml-auto minify-nav btn btn-icon"><i class="fad fa-angle-double-right fa-md"></i></div> -->
       <!-- data-class="nav-function-minify" -->
       <div
         v-tippy="{ content: 'Perkecil Menu' }"
-        class="minify-nav ml-auto btn btn-icon"
+        class="ml-auto minify-nav btn btn-icon"
         data-action="toggle"
         data-class=""
       >

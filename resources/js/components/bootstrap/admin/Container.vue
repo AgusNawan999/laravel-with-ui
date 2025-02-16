@@ -28,10 +28,10 @@ const randomKey = (Math.random() + 1).toString(36).substring(7)
               data-toggle="modal"
               data-target="#modal-shortcut"
             >
-              <img src="@/images/dki-logo.png" alt="SmartAdmin WebApp" aria-roledescription="logo" />
-              <span class="page-logo-text mr-1">{{ _settings.appname }}</span>
-              <span class="position-absolute text-white opacity-50 small pos-top pos-right mr-2 mt-n2"></span>
-              <i class="fal fa-angle-down d-inline-block ml-1 fs-lg color-primary-300"></i>
+              <img src="@/images/logo-emasin2.png" alt="SmartAdmin WebApp" aria-roledescription="logo" />
+              <span class="mr-1 page-logo-text">{{ _settings.appname }}</span>
+              <span class="mr-2 text-white opacity-50 position-absolute small pos-top pos-right mt-n2"></span>
+              <i class="ml-1 fal fa-angle-down d-inline-block fs-lg color-primary-300"></i>
             </a>
           </div>
           <!-- DOC: nav menu layout change shortcut -->
@@ -50,29 +50,29 @@ const randomKey = (Math.random() + 1).toString(36).substring(7)
               variant="link"
               toggle-tag="div"
               class="m-2"
-              toggle-class="text-decoration-none border-0"
+              toggle-class="border-0 text-decoration-none"
             >
               <template #button-content>
-                <i class="fad fa-cog text-muted mr-1 scale-up"></i>
+                <i class="mr-1 fad fa-cog text-muted scale-up"></i>
               </template>
               <b-dropdown-item href="#" class="text-decoration-none">
                 <a
                   href="javascript:void(0)"
-                  class="text-dark cursor-pointer"
+                  class="cursor-pointer text-dark"
                   @click.prevent="backToLanding"
                 >
                   <span>
-                    <i class="fad fa-desktop mr-3"></i>Landing
+                    <i class="mr-3 fad fa-desktop"></i>Landing
                   </span>
                 </a>
               </b-dropdown-item>
               <b-dropdown-item href="#" class="text-decoration-none">
                 <a
                   href="javascript:void(0)"
-                  class="text-dark cursor-pointer"
+                  class="cursor-pointer text-dark"
                   onclick="doLogout.apply(this, arguments)"
                 >
-                  <span><i class="fad fa-sign-out mr-3"></i>Logout</span>
+                  <span><i class="mr-3 fad fa-sign-out"></i>Logout</span>
                 </a>
               </b-dropdown-item>
             </b-dropdown>
@@ -85,7 +85,7 @@ const randomKey = (Math.random() + 1).toString(36).substring(7)
         <!-- END Page Header -->
         <!-- BEGIN Page Content -->
         <!-- the #js-page-content id is needed for some plugins to initialize -->
-        <main id="js-page-content" :key="randomKey" role="main" class="page-content mt-5">
+        <main id="js-page-content" :key="randomKey" role="main" class="mt-5 page-content">
           <router-view :key="randomKey"></router-view>
         </main>
         <!-- this overlay is activated only when mobile menu is triggered -->

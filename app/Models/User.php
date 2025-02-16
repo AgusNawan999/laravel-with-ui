@@ -49,7 +49,7 @@ class User extends Authenticatable
     'username',
     'v_full_name',
     'v_email',
-    'v_userpass',
+    'password',
     'dt_last_change_pass',
     'si_user_enable',
     'v_created_by',
@@ -64,7 +64,7 @@ class User extends Authenticatable
    * @var array<int, string>
    */
   protected $hidden = [
-    'v_userpass',
+    'password',
   ];
 
   /**
@@ -74,7 +74,7 @@ class User extends Authenticatable
    */
   protected $casts = [
     'dt_last_change_pass' => 'datetime',
-    'v_userpass' => 'hashed',
+    'password' => 'hashed',
     'si_user_enable' => 'boolean'
   ];
 

@@ -8,5 +8,4 @@ use Illuminate\Contracts\Auth\Authenticatable;
 interface RegisterRepositoryInterface
 {
   public function daftar(Request $request);
-  public function getUsereTppByNrk($user);
 }

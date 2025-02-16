@@ -192,7 +192,7 @@ if (!function_exists("createLog")) {
    */
   function createLog($table, $aksi, $data)
   {
-    $user_id = auth()->user()->v_userid;
+    $user_id = auth()->user()->username;
     AuditTrail::create([
       'v_user_aksi' => $user_id,
       'v_ip_user' => getIp(),

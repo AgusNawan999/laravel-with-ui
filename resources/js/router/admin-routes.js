@@ -2,6 +2,8 @@ import { _settings } from '@/js/utils/common'
 import { createWebHistory, createRouter } from 'vue-router'
 
 // import some route
+import { settings } from '../router/modules/settings-routes'
+import { contents } from '../router/modules/contents-routes'
 
 
 const router = createRouter({
@@ -39,6 +41,9 @@ const router = createRouter({
             subheader: 'Dashboard Admin'
           },
         },
+        ...settings,
+        ...contents,
+
       ],
     },
   ],

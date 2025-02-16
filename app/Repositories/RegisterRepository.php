@@ -25,17 +25,16 @@ class RegisterRepository implements RegisterRepositoryInterface
   public function daftar($user)
   {
     $data = [
-      'v_userid' => $user['v_userid'],
-      'v_username' => $user['v_username'],
-      'v_userpass' => $user['userpass_new'],
+      'username' => $user['username'],
+      'v_full_name' => $user['v_full_name'],
+      'password' => $user['password'],
       'si_user_enable' => 1,
-      'si_use_ekin' => 0,
-      'v_created_by' => $user['v_userid'],
+      'v_created_by' => $user['username'],
       'dt_created_at' => Carbon::now()
     ];
 
     // cek user telah terdaftar/belum
-    $cek = $this->userModel->where('v_userid','=',$user['v_userid'])->first();
+    $cek = $this->userModel->where('username','=',$user['username'])->first();
     if($cek != null){
       $hasil = [
 				'status' => 'error',
@@ -67,21 +66,4 @@ class RegisterRepository implements RegisterRepositoryInterface
     return json_encode($hasil);
   }
 
-  public function getUsereTppByNrk($user){
-    $result = UserEtpp::where('v_userid', $user->nrk)
-      ->whereExists(
-        fn ($q) =>
-          $q->selectRaw(1)
-            ->from('vw_pegawai')
-            ->whereColumn('vw_pegawai.nrk', 'user_etpp.v_userid')
-      )
-      ->first();
-    if($result == null){
-      $result = [];
-    }else{
-      $result = $result->toArray();
-    }
-
-    return $result;
-  }
 }

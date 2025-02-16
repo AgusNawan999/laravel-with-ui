@@ -11,7 +11,7 @@
   <!-- Remove Tap Highlight on Windows Phone IE -->
   <meta name="msapplication-tap-highlight" content="no">
 
-  <link rel="shortcut icon" href="{{ Vite::asset('resources/images/dki-logo.png') }}" type="image/x-icon">
+  <link rel="shortcut icon" href="{{ Vite::asset('resources/images/logo-emasin2.png') }}" type="image/x-icon">
 
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">

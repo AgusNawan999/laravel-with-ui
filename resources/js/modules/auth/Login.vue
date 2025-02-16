@@ -127,20 +127,20 @@ onMounted(() => loadCaptcha())
 <template>
   <div class="page-wrapper">
     <div class="page-inner bg-brand-gradient">
-      <div class="page-content-wrapper bg-transparent m-0 pl-0">
-        <div class="auth-wrapper flex-1">
+      <div class="pl-0 m-0 bg-transparent page-content-wrapper">
+        <div class="flex-1 auth-wrapper">
           <div class="d-flex flex-column align-items-between h-100">
-            <div class="container py-4 py-lg-5 my-lg-5 px-4 px-sm-0 flex-1">
+            <div class="container flex-1 px-4 py-4 py-lg-5 my-lg-5 px-sm-0">
               <div class="row">
-                <div class="col-xl-5 ml-auto mr-auto">
-                  <div class="card p-5 rounded-plus bg-faded">
-                    <div class="logo text-center mb-4">
-                      <div class="text-dark mb-2 font-weight-bold lead">
+                <div class="ml-auto mr-auto col-xl-5">
+                  <div class="p-5 card rounded-plus bg-faded">
+                    <div class="mb-4 text-center logo">
+                      <div class="mb-2 text-dark font-weight-bold lead">
                         {{ _settings.appname }}
                       </div>
                       <a href="#" class="page-logo-link press-scale-down">
                         <img
-                          src="@/images/dki-logo.png"
+                          src="@/images/logo-emasin2.png"
                           class="img-fluid"
                           :alt="_settings.appname"
                           aria-roledescription="logo"
@@ -185,7 +185,7 @@ onMounted(() => loadCaptcha())
                             </span>
                           </template>
                           <template #append>
-                            <span class="input-group-text cursor-pointer" @click.prevent="seekPassword">
+                            <span class="cursor-pointer input-group-text" @click.prevent="seekPassword">
                               <span :class="`fad fa-${seek.icon}`" @click.prevent="seekPassword"></span>
                             </span>
                           </template>
@@ -205,7 +205,7 @@ onMounted(() => loadCaptcha())
                       <b-form-group>
                         <div class="mt-0 mb-2">
                           <div class="captcha">
-                            <div class="d-flex align-items-center mb-2">
+                            <div class="mb-2 d-flex align-items-center">
                               <div
                                 :style="{
                                   display: 'block',
@@ -230,7 +230,7 @@ onMounted(() => loadCaptcha())
                               <button
                                 id="reload-captcha"
                                 type="button"
-                                class="btn btn-danger btn-sm py-1 mr-2"
+                                class="py-1 mr-2 btn btn-danger btn-sm"
                                 :disabled="!captcha.src"
                                 tabindex="5"
                                 @click.prevent="loadCaptcha"
@@ -242,7 +242,7 @@ onMounted(() => loadCaptcha())
                               <button
                                 id="audio-captcha"
                                 type="button"
-                                class="btn btn-primary btn-sm reload py-1"
+                                class="py-1 btn btn-primary btn-sm reload"
                                 :disabled="!captcha.src"
                                 aria-describedby="Captcha Suara"
                                 tabindex="6"
@@ -285,14 +285,14 @@ onMounted(() => loadCaptcha())
                         </b-button>
                       </div>
                     </form>
-                    <div class="text-center mt-5">
+                    <div class="mt-5 text-center">
                       <span>Belum memiliki akun? <a href="" class="font-weight-bold" @click.prevent="toDaftar()">Daftar</a></span>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="d-block text-center text-white mb-3">
+            <div class="mb-3 text-center text-white d-block">
               <div class="container mx-auto sponsor" style="display: block">
                 <div class="p-4 text-center">
                   <img src="@/images/jakartaplus-logo.svg" class="img-fluid" width="105px" />
