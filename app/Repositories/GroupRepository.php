@@ -50,10 +50,6 @@ class GroupRepository implements GroupRepositoryInterface
           $request->has('status') && $request->status != 'semua',
           fn ($sql) => $sql->where('si_aktif', $request->status == 'aktif' ? 1 : 0)
         )
-        ->when(
-          $request->has('ispj') && $request->ispj != 'semua',
-          fn ($sql) => $sql->where('si_is_pj', $request->ispj == 'aktif' ? 1 : 0)
-        )
         ->orderBy('v_group_code')
         ->orderBy('v_group_name');
 

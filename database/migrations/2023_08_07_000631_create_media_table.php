@@ -8,11 +8,11 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('media', function (Blueprint $table) {
-            $table->id();
-
-            $table->morphs('model');
-            $table->uuid()->nullable()->unique();
+        Schema::create('tt_media', function (Blueprint $table) {
+            $table->uuid('id');
+            $table->bigIncrements('model_id');
+            $table->string('model_type');
+            $table->uuid('uuid')->nullable()->unique();
             $table->string('collection_name');
             $table->string('name');
             $table->string('file_name');
@@ -29,11 +29,4 @@ return new class extends Migration
             $table->nullableTimestamps();
         });
     }
-     /**
-     * Reverse the migrations.
-     */
-      public function down(): void
-      {
-        Schema::dropIfExists('media');
-      }
 };

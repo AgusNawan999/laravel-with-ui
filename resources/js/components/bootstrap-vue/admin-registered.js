@@ -32,6 +32,7 @@ import {
   TabsPlugin,
   BFormCheckboxGroup,
   FormCheckboxPlugin,
+  BImg
 
 } from 'bootstrap-vue'
 
@@ -65,12 +66,12 @@ export default {
     Vue.component('BForm', BForm)
     Vue.component('BLink', BLink)
     Vue.component('BFormCheckBoxGroup', BFormCheckboxGroup)
+    Vue.component('BImg', BImg)
 
     // directive register
     Vue.directive('b-list-group', BListGroup)
     Vue.directive('b-modal', VBModal)
     Vue.directive('b-toggle', VBToggle)
-
     // plugins register
     Vue.use(SidebarPlugin)
     Vue.use(TabsPlugin)
